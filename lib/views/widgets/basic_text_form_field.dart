@@ -7,11 +7,10 @@ class BasicTextFormField extends StatelessWidget {
   final String hintText;
   final bool obcsureText;
   final bool isObscured;
-  final VoidCallback onToggleObscure;
   final Widget? icon;
 
   const BasicTextFormField(
-      {required this.onToggleObscure, super.key,
+      { super.key,
         this.intalialValue = '',
         this.hintText = '',
         this.obcsureText = false,
@@ -25,7 +24,7 @@ class BasicTextFormField extends StatelessWidget {
       width: 390,
       height: 50,
       child: TextFormField(
-        obscureText: obcsureText && isObscured,
+        obscureText: obcsureText,
         initialValue: intalialValue,
         decoration: InputDecoration(
           hintText: hintText,
@@ -35,15 +34,6 @@ class BasicTextFormField extends StatelessWidget {
             color: MyColors.grayColor,
           ),
           prefixIcon: icon,
-          suffixIcon: obcsureText
-              ? IconButton(
-            icon: Icon(
-              isObscured ? Icons.visibility_off : Icons.visibility,
-              color: MyColors.grayColor,
-            ),
-            onPressed: onToggleObscure,
-          )
-              : null,
           contentPadding: const EdgeInsets.only(left: 20, right: 20),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),

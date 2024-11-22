@@ -38,7 +38,7 @@ class LoginView extends StatelessWidget {
                 hintText: 'Email or User Name',
               icon: Image.asset(
                 MyImages.name,
-              ), onToggleObscure: () {  },
+              ),
             ),
               _size,
               BasicTextFormField(
@@ -46,8 +46,7 @@ class LoginView extends StatelessWidget {
                 obcsureText: true,
                 icon: Image.asset(
                   MyImages.password,
-                ), onToggleObscure: () {
-              },
+                ),
               ),
               _size,
               _passwordText,

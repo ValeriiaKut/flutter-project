@@ -45,14 +45,14 @@ class RegisterView extends StatelessWidget {
               hintText: 'Full Name',
               icon: Image.asset(
                 MyImages.name,
-              ), onToggleObscure: () {  },
+              ),
             ),
             _size,
             BasicTextFormField(
               hintText: 'Email',
               icon: Image.asset(
                 MyImages.email,
-              ), onToggleObscure: () {  },
+              ),
             ),
             _size,
             BasicTextFormField(
@@ -60,7 +60,7 @@ class RegisterView extends StatelessWidget {
               obcsureText: true,
               icon: Image.asset(
                 MyImages.password,
-              ), onToggleObscure: () {  },
+              ),
             ),
             _size,
             BasicTextFormField(
@@ -68,7 +68,7 @@ class RegisterView extends StatelessWidget {
               obcsureText: true,
               icon: Image.asset(
                 MyImages.password,
-              ), onToggleObscure: () {  },
+              ),
             ),
             const SizedBox(
               height: 80,
