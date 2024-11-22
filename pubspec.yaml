@@ -8,8 +8,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   cupertino_icons: ^1.0.8
   very_good_analysis: 6.0.0
+  shared_preferences:
+
+ 
+
+
 
 dev_dependencies:
   flutter_test:

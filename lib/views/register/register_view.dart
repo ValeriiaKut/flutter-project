@@ -12,111 +12,122 @@ class RegisterView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            Align(
-              alignment: Alignment.centerRight,
-              child: Image.asset(
-                MyImages.elipse,
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  CupertinoPageRoute<RegisterView>(
-                    builder: (context) => const LoginView(),
-                  ),
-                );
-              },
-              child: _backText,
-            ),
-            const SizedBox(
-              height: 104,
-            ),
-            _signUpText,
-            const SizedBox(
-              height: 46,
-            ),
-            BasicTextFormField(
-              hintText: 'Full Name',
-              icon: Image.asset(
-                MyImages.name,
-              ), onToggleObscure: () {  },
-            ),
-            _size,
-            BasicTextFormField(
-              hintText: 'Email',
-              icon: Image.asset(
-                MyImages.email,
-              ), onToggleObscure: () {  },
-            ),
-            _size,
-            BasicTextFormField(
-              hintText: 'Password',
-              obcsureText: true,
-              icon: Image.asset(
-                MyImages.password,
-              ), onToggleObscure: () {  },
-            ),
-            _size,
-            BasicTextFormField(
-              hintText: 'Confirm Password',
-              obcsureText: true,
-              icon: Image.asset(
-                MyImages.password,
-              ), onToggleObscure: () {  },
-            ),
-            const SizedBox(
-              height: 80,
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                fixedSize: const Size(390, 50),
-                backgroundColor: MyColors.lilacColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Align(
+                alignment: Alignment.centerRight,
+                child: Image.asset(
+                  MyImages.elipse,
                 ),
               ),
-              child: Center(
-                child: Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    color: MyColors.whiteColor,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
+              Row(
+                children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 12),
+                child: Image.asset(
+                  MyImages.back,
+                 ),
+              ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute<RegisterView>(
+                          builder: (context) => const LoginView(),
+                        ),
+                      );
+                    },
+                    child: _backText,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 85,
+              ),
+              _signUpText,
+              const SizedBox(
+                height: 46,
+              ),
+              BasicTextFormField(
+                hintText: 'Full Name',
+                icon: Image.asset(
+                  MyImages.name,
+                ),
+              ),
+              _size,
+              BasicTextFormField(
+                hintText: 'Email',
+                icon: Image.asset(
+                  MyImages.email,
+                ),
+              ),
+              _size,
+              BasicTextFormField(
+                hintText: 'Password',
+                obcsureText: true,
+                isObscured: true,
+                icon: Image.asset(
+                  MyImages.password,
+                ),
+              ),
+              _size,
+              BasicTextFormField(
+                hintText: 'Confirm Password',
+                obcsureText: true,
+                isObscured: true,
+                icon: Image.asset(
+                  MyImages.password,
+                ),
+              ),
+              const SizedBox(
+                height: 80,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(390, 50),
+                  backgroundColor: MyColors.lilacColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+                child: Center(
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      color: MyColors.whiteColor,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _accountText,
-            const SizedBox(
-              width: 3,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  CupertinoPageRoute<RegisterView>(
-                    builder: (context) => const LoginView(),
-                  ),
-                );
-              },
-              child: _signInText,
-            ),
-          ],
-        ),
-      ],),),
+              const SizedBox(
+                height: 50,
+              ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _accountText,
+              const SizedBox(
+                width: 3,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute<RegisterView>(
+                      builder: (context) => const LoginView(),
+                    ),
+                  );
+                },
+                child: _signInText,
+              ),
+            ],
+          ),
+                ],),
+        ),),
     );
   }
 }
@@ -169,9 +180,7 @@ Widget get _size {
 
 
 Widget get _backText {
-  return Padding(
-    padding: const EdgeInsets.only(left: 32),
-    child: Align(
+  return  Align(
       alignment: Alignment.centerLeft,
       child: Text(
         'Back',
@@ -181,8 +190,7 @@ Widget get _backText {
           color: MyColors.purpleColor,
         ),
       ),
-    ),
-  );
+    );
 }
 
 
