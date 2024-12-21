@@ -1,20 +1,20 @@
 import 'package:dsw51765/utils/my_colors.dart';
-import 'package:dsw51765/utils/my_images.dart'; // Assuming MyImages contains MyImages.eye and MyImages.eyeOff
+import 'package:dsw51765/utils/my_images.dart';
 import 'package:flutter/material.dart';
 
 class BasicTextFormField extends StatefulWidget {
-  final String intalialValue;
+  final String initialValue;
   final String hintText;
-  final bool obcsureText;
+  final bool obscureText;
   final bool isObscured;
   final Widget? icon; // For left side icon
   final Widget? prefixIcon;
 
   const BasicTextFormField({
     super.key,
-    this.intalialValue = '',
+    this.initialValue = '',
     this.hintText = '',
-    this.obcsureText = false,
+    this.obscureText = false,
     this.isObscured = false,
     this.icon, // Custom left side icon
     this.prefixIcon, // Custom prefix icon (if needed)
@@ -25,12 +25,12 @@ class BasicTextFormField extends StatefulWidget {
 }
 
 class _BasicTextFormFieldState extends State<BasicTextFormField> {
-  late bool _obscureText;
+  late bool obscureText;
 
   @override
   void initState() {
     super.initState();
-    _obscureText = widget.obcsureText; // Initialize the obscureText state
+    obscureText = widget.obscureText; // Initialize the obscureText state
   }
 
   @override
@@ -39,8 +39,8 @@ class _BasicTextFormFieldState extends State<BasicTextFormField> {
       width: 390,
       height: 50,
       child: TextFormField(
-        obscureText: _obscureText, // Use the dynamic state of obscureText
-        initialValue: widget.intalialValue,
+        obscureText: obscureText,
+        initialValue: widget.initialValue,
         decoration: InputDecoration(
           hintText: widget.hintText,
           hintStyle: TextStyle(
@@ -48,7 +48,7 @@ class _BasicTextFormFieldState extends State<BasicTextFormField> {
             fontWeight: FontWeight.w400,
             color: MyColors.grayColor,
           ),
-          prefixIcon: widget.icon, // Custom left icon
+          prefixIcon: widget.icon,
           contentPadding: const EdgeInsets.only(left: 20, right: 20),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
@@ -75,16 +75,16 @@ class _BasicTextFormFieldState extends State<BasicTextFormField> {
               ? GestureDetector(
             onTap: () {
               setState(() {
-                _obscureText = !_obscureText; // Toggle password visibility
+                obscureText = !obscureText;
               });
             },
-            child: const ImageIcon(
+            child: ImageIcon(
               AssetImage(
-                MyImages.eye, // Toggle between eye and eyeOff
+                obscureText ? MyImages.eye : MyImages.eye,
               ),
             ),
           )
-              : widget.prefixIcon ?? const SizedBox(), // Default icon for other fields
+              : widget.prefixIcon ?? const SizedBox(),
         ),
       ),
     );

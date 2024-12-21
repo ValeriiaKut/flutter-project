@@ -1,4 +1,3 @@
-import 'package:dsw51765/utils/extensions.dart';
 import 'package:dsw51765/utils/my_colors.dart';
 import 'package:dsw51765/utils/my_images.dart';
 import 'package:dsw51765/views/notes/notes_view.dart';
@@ -15,10 +14,8 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-
   @override
   Widget build(BuildContext context) {
-    Extensions.width(context);
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -26,38 +23,21 @@ class _LoginViewState extends State<LoginView> {
             width: double.infinity,
             child: Column(
               children: [
-                const SizedBox(
-                  height: 62,
+                const SizedBox(height: 62),
+                Image.asset(MyImages.logo),
+                const SizedBox(height: 21),
+                _signInText,
+                const SizedBox(height: 46),
+                BasicTextFormField(
+                  hintText: 'Email',
+                  icon: Image.asset(MyImages.email),
                 ),
-                Image.asset(
-                  MyImages.logo,
-                ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 21,
-                  ),
-                  _signInText,
-                ],
-              ),
-                const SizedBox(
-                  height: 46,
-                ),
-              BasicTextFormField(
-                hintText: 'Email or User Name',
-                icon: Image.asset(
-                  MyImages.name,
-                ),
-              ),
                 _size,
                 BasicTextFormField(
                   hintText: 'Password',
-                  obcsureText: true,
+                  obscureText: true,
                   isObscured: true,
-                  icon: Image.asset(
-                    MyImages.password,
-                  ),
+                  icon: Image.asset(MyImages.password),
                 ),
                 _size,
                 _passwordText,
@@ -66,7 +46,7 @@ class _LoginViewState extends State<LoginView> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      CupertinoPageRoute<RegisterView>(
+                      CupertinoPageRoute<NotesView>(
                         builder: (context) => const NotesView(),
                       ),
                     );
@@ -89,37 +69,33 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 200,
-                ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _accountText,
-                const SizedBox(
-                  width: 4,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      CupertinoPageRoute<RegisterView>(
-                        builder: (context) => const RegisterView(),
-                      ),
-                    );
-                  },
-                  child: _signUpText,
+                const SizedBox(height: 200),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _accountText,
+                    const SizedBox(width: 4),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute<RegisterView>(
+                            builder: (context) => const RegisterView(),
+                          ),
+                        );
+                      },
+                      child: _signUpText,
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
-                ),
-              ),
+          ),
         ),
-    ),
+      ),
     );
   }
-}
+
 
 Widget get _signInText {
   return Padding(
@@ -138,7 +114,6 @@ Widget get _signInText {
   );
 }
 
-
 Widget get _passwordText {
   return Padding(
     padding: const EdgeInsets.only(right: 19),
@@ -155,7 +130,6 @@ Widget get _passwordText {
     ),
   );
 }
-
 
 Widget get _signUpText {
   return Text(
@@ -179,8 +153,10 @@ Widget get _accountText {
   );
 }
 
+
 Widget get _size {
   return const SizedBox(
     height: 40,
   );
+  }
 }

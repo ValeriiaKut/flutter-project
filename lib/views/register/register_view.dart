@@ -15,74 +15,58 @@ class RegisterView extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.centerRight,
-                child: Image.asset(
-                  MyImages.elipse,
-                ),
-              ),
               Row(
                 children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 12),
-                child: Image.asset(
-                  MyImages.back,
-                 ),
-              ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute<RegisterView>(
-                          builder: (context) => const LoginView(),
-                        ),
-                      );
-                    },
-                    child: _backText,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 12, top: 59),
+                    child: Image.asset(
+                      MyImages.back,
+                    ),
+                  ),
+                   GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute<LoginView>(
+                            builder: (context) => const LoginView(),
+                          ),
+                        );
+                      },
+                      child: _backText,
+                    ),
+                  const Spacer(),
+                  Image.asset(
+                    MyImages.elipse,
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 85,
-              ),
+              const SizedBox(height: 101),
               _signUpText,
-              const SizedBox(
-                height: 46,
-              ),
+              const SizedBox(height: 46),
               BasicTextFormField(
                 hintText: 'Full Name',
-                icon: Image.asset(
-                  MyImages.name,
-                ),
+                icon: Image.asset(MyImages.name),
               ),
               _size,
               BasicTextFormField(
                 hintText: 'Email',
-                icon: Image.asset(
-                  MyImages.email,
-                ),
+                icon: Image.asset(MyImages.email),
               ),
               _size,
               BasicTextFormField(
                 hintText: 'Password',
-                obcsureText: true,
+                obscureText: true,
                 isObscured: true,
-                icon: Image.asset(
-                  MyImages.password,
-                ),
+                icon: Image.asset(MyImages.password),
               ),
               _size,
               BasicTextFormField(
                 hintText: 'Confirm Password',
-                obcsureText: true,
+                obscureText: true,
                 isObscured: true,
-                icon: Image.asset(
-                  MyImages.password,
-                ),
+                icon: Image.asset(MyImages.password),
               ),
-              const SizedBox(
-                height: 80,
-              ),
+              const SizedBox(height: 80),
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
@@ -103,31 +87,29 @@ class RegisterView extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 50,
-              ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _accountText,
-              const SizedBox(
-                width: 3,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    CupertinoPageRoute<RegisterView>(
-                      builder: (context) => const LoginView(),
-                    ),
-                  );
-                },
-                child: _signInText,
+              const SizedBox(height: 50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _accountText,
+                  const SizedBox(width: 3),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute<LoginView>(
+                          builder: (context) => const LoginView(),
+                        ),
+                      );
+                    },
+                    child: _signInText,
+                  ),
+                ],
               ),
             ],
           ),
-                ],),
-        ),),
+        ),
+      ),
     );
   }
 }
@@ -148,7 +130,6 @@ Widget get _signUpText {
     ),
   );
 }
-
 
 Widget get _signInText {
   return Text(
@@ -178,19 +159,20 @@ Widget get _size {
   );
 }
 
-
 Widget get _backText {
-  return  Align(
-      alignment: Alignment.centerLeft,
+  return Padding(
+    padding: const EdgeInsets.only(top: 59),
+    child: Align(
       child: Text(
         'Back',
         style: TextStyle(
-          fontSize: 15,
+          fontSize: 12,
           fontWeight: FontWeight.w400,
           color: MyColors.purpleColor,
         ),
       ),
-    );
+    ),
+  );
 }
 
 
