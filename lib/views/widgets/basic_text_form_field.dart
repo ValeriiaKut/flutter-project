@@ -7,6 +7,7 @@ class BasicTextFormField extends StatefulWidget {
   final String hintText;
   final bool obcsureText;
   final bool isObscured;
+<<<<<<< HEAD
   final Widget? icon; // For left side icon
   final Widget? prefixIcon;
 
@@ -32,6 +33,18 @@ class _BasicTextFormFieldState extends State<BasicTextFormField> {
     super.initState();
     _obscureText = widget.obcsureText; // Initialize the obscureText state
   }
+=======
+  final Widget? icon;
+
+  const BasicTextFormField(
+      { super.key,
+        this.intalialValue = '',
+        this.hintText = '',
+        this.obcsureText = false,
+        this.isObscured = false,
+        this.icon,}
+      );
+>>>>>>> 936de1ada430b200f6a57d0152f92c30007f8dea
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +52,13 @@ class _BasicTextFormFieldState extends State<BasicTextFormField> {
       width: 390,
       height: 50,
       child: TextFormField(
+<<<<<<< HEAD
         obscureText: _obscureText, // Use the dynamic state of obscureText
         initialValue: widget.intalialValue,
+=======
+        obscureText: obcsureText,
+        initialValue: intalialValue,
+>>>>>>> 936de1ada430b200f6a57d0152f92c30007f8dea
         decoration: InputDecoration(
           hintText: widget.hintText,
           hintStyle: TextStyle(
@@ -48,7 +66,11 @@ class _BasicTextFormFieldState extends State<BasicTextFormField> {
             fontWeight: FontWeight.w400,
             color: MyColors.grayColor,
           ),
+<<<<<<< HEAD
           prefixIcon: widget.icon, // Custom left icon
+=======
+          prefixIcon: icon,
+>>>>>>> 936de1ada430b200f6a57d0152f92c30007f8dea
           contentPadding: const EdgeInsets.only(left: 20, right: 20),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
