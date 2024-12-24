@@ -7,6 +7,10 @@ class BasicTextFormField extends StatefulWidget {
   final String hintText;
   final bool obscureText;
   final bool isObscured;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 5e9919f9586b26b1f6ee90e99a3c5c99cc26c8d7
   final Widget? icon; // For left side icon
   final Widget? prefixIcon;
 
@@ -32,6 +36,21 @@ class _BasicTextFormFieldState extends State<BasicTextFormField> {
     super.initState();
     obscureText = widget.obscureText; // Initialize the obscureText state
   }
+<<<<<<< HEAD
+=======
+=======
+  final Widget? icon;
+
+  const BasicTextFormField(
+      { super.key,
+        this.intalialValue = '',
+        this.hintText = '',
+        this.obcsureText = false,
+        this.isObscured = false,
+        this.icon,}
+      );
+>>>>>>> 936de1ada430b200f6a57d0152f92c30007f8dea
+>>>>>>> 5e9919f9586b26b1f6ee90e99a3c5c99cc26c8d7
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +58,18 @@ class _BasicTextFormFieldState extends State<BasicTextFormField> {
       width: 390,
       height: 50,
       child: TextFormField(
+<<<<<<< HEAD
         obscureText: obscureText,
         initialValue: widget.initialValue,
+=======
+<<<<<<< HEAD
+        obscureText: _obscureText, // Use the dynamic state of obscureText
+        initialValue: widget.intalialValue,
+=======
+        obscureText: obcsureText,
+        initialValue: intalialValue,
+>>>>>>> 936de1ada430b200f6a57d0152f92c30007f8dea
+>>>>>>> 5e9919f9586b26b1f6ee90e99a3c5c99cc26c8d7
         decoration: InputDecoration(
           hintText: widget.hintText,
           hintStyle: TextStyle(
@@ -48,7 +77,15 @@ class _BasicTextFormFieldState extends State<BasicTextFormField> {
             fontWeight: FontWeight.w400,
             color: MyColors.grayColor,
           ),
+<<<<<<< HEAD
           prefixIcon: widget.icon,
+=======
+<<<<<<< HEAD
+          prefixIcon: widget.icon, // Custom left icon
+=======
+          prefixIcon: icon,
+>>>>>>> 936de1ada430b200f6a57d0152f92c30007f8dea
+>>>>>>> 5e9919f9586b26b1f6ee90e99a3c5c99cc26c8d7
           contentPadding: const EdgeInsets.only(left: 20, right: 20),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
