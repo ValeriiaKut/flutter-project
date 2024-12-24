@@ -11,7 +11,7 @@ class NotesView extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          child: const Text('Open route'),
+          child: const Text('Nowa notatka'),
           onPressed: () {
             // Navigate to second route when tapped.
           },
