@@ -90,54 +90,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ],
             ),
-<<<<<<< HEAD
           ),
-=======
-<<<<<<< HEAD
-          ],
-=======
-              const SizedBox(
-                height: 46,
-              ),
-            BasicTextFormField(
-                hintText: 'Email or User Name',
-              icon: Image.asset(
-                MyImages.name,
-              ),
-            ),
-              _size,
-              BasicTextFormField(
-                hintText: 'Password',
-                obcsureText: true,
-                icon: Image.asset(
-                  MyImages.password,
-                ),
-              ),
-              _size,
-              _passwordText,
-              _size,
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(390, 50),
-                  backgroundColor: MyColors.lilacColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-                child: Center(
-                  child: Text(
-                    'Sign in',
-                    style: TextStyle(
-                      color: MyColors.whiteColor,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
->>>>>>> 936de1ada430b200f6a57d0152f92c30007f8dea
-                ),
-              ),
->>>>>>> 5e9919f9586b26b1f6ee90e99a3c5c99cc26c8d7
         ),
       ),
     );

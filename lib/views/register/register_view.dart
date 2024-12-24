@@ -12,92 +12,9 @@ class RegisterView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-<<<<<<< HEAD
         body: SingleChildScrollView(
           child: Column(
             children: [
-=======
-<<<<<<< HEAD
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Align(
-                alignment: Alignment.centerRight,
-                child: Image.asset(
-                  MyImages.elipse,
-=======
-        body: Column(
-          children: [
-            Align(
-              alignment: Alignment.centerRight,
-              child: Image.asset(
-                MyImages.elipse,
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  CupertinoPageRoute<RegisterView>(
-                    builder: (context) => const LoginView(),
-                  ),
-                );
-              },
-              child: _backText,
-            ),
-            const SizedBox(
-              height: 104,
-            ),
-            _signUpText,
-            const SizedBox(
-              height: 46,
-            ),
-            BasicTextFormField(
-              hintText: 'Full Name',
-              icon: Image.asset(
-                MyImages.name,
-              ),
-            ),
-            _size,
-            BasicTextFormField(
-              hintText: 'Email',
-              icon: Image.asset(
-                MyImages.email,
-              ),
-            ),
-            _size,
-            BasicTextFormField(
-              hintText: 'Password',
-              obcsureText: true,
-              icon: Image.asset(
-                MyImages.password,
-              ),
-            ),
-            _size,
-            BasicTextFormField(
-              hintText: 'Confirm Password',
-              obcsureText: true,
-              icon: Image.asset(
-                MyImages.password,
-              ),
-            ),
-            const SizedBox(
-              height: 80,
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                fixedSize: const Size(390, 50),
-                backgroundColor: MyColors.lilacColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
->>>>>>> 936de1ada430b200f6a57d0152f92c30007f8dea
-                ),
-              ),
->>>>>>> 5e9919f9586b26b1f6ee90e99a3c5c99cc26c8d7
               Row(
                 children: [
                   Padding(
