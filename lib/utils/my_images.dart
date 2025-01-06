@@ -7,4 +7,5 @@ class MyImages {
   static const elipse = '$_assetsFolder/elipse.png';
   static const eye = '$_assetsFolder/eye.png';
   static const back = '$_assetsFolder/back.png';
+  static const screen = '$_assetsFolder/landingScreen.png';
 }

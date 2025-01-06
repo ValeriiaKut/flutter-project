@@ -1,3 +1,4 @@
+import 'package:dsw51765/utils/extensions.dart';
 import 'package:dsw51765/utils/my_colors.dart';
 import 'package:dsw51765/utils/my_images.dart';
 import 'package:dsw51765/views/notes/notes_view.dart';
@@ -14,8 +15,69 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  late final AppLifecycleListener _listener;
+  String _currentState = '';
+
+  @override
+  void initState(){
+    super.initState();
+
+    _listener = AppLifecycleListener(
+      onDetach: _onDetauch,
+      onHide: _onHide,
+      onInactive: _onInactive,
+      onPause: _onPause,
+      onRestart: _onRestart,
+      onResume: _onResume,
+      onShow: _onShow,
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _listener.dispose();
+  }
+
+  void _onDetauch() {
+    print('onDEtauch');
+    _currentState = 'Ondetauch';
+  }
+
+  void _onHide() {
+    print('onHide');
+    _currentState = 'onHide';
+  }
+
+  void _onInactive() {
+    print('onInactive');
+    _currentState = 'onInactive';
+  }
+
+  void _onPause() {
+    print('onPause');
+    _currentState = 'onPause';
+  }
+
+  void _onRestart() {
+    print('onRestart');
+    _currentState = 'onRestart';
+  }
+
+  void _onResume() {
+    print('onResume');
+    _currentState = 'onResume';
+  }
+
+  void _onShow() {
+    print('onShow');
+    _currentState = 'onShow';
+  }
+
   @override
   Widget build(BuildContext context) {
+    final width = Extensions.width(context);
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(

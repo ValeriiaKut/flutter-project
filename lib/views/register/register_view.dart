@@ -1,3 +1,4 @@
+import 'package:dsw51765/utils/extensions.dart';
 import 'package:dsw51765/utils/my_colors.dart';
 import 'package:dsw51765/utils/my_images.dart';
 import 'package:dsw51765/views/login/login_view.dart';
@@ -10,6 +11,8 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = Extensions.width(context);
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
