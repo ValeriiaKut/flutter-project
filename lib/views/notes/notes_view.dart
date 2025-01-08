@@ -49,6 +49,7 @@ class _NotesViewState extends State<NotesView> {
     return '${dt.day}/${dt.month}/${dt.year}, ${dt.hour.toString().padLeft(2, '0')}:${dt.minute.toString().padLeft(2, '0')}';
   }
 
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -161,7 +162,7 @@ class _NotesViewState extends State<NotesView> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const AddEditNoteView(),
-                ));
+                ),);
             await _loadNotes();
           },
           backgroundColor: MyColors.coralColor,

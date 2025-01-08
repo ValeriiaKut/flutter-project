@@ -1,5 +1,4 @@
 import 'package:dsw51765/views/widgets/notes_model.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 

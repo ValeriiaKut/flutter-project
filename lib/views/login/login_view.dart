@@ -1,3 +1,4 @@
+import 'package:dsw51765/services/shared_preferences_service.dart';
 import 'package:dsw51765/utils/extensions.dart';
 import 'package:dsw51765/utils/my_colors.dart';
 import 'package:dsw51765/utils/my_images.dart';
@@ -7,6 +8,7 @@ import 'package:dsw51765/views/widgets/basic_text_form_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
@@ -15,43 +17,47 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  late final AppLifecycleListener _listener;
-  String _currentState = '';
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  String? _emailErrorMessage; // Error for invalid email
-  String? _passwordErrorMessage; // Error for invalid password
+  String? _emailErrorMessage;
+  String? _passwordErrorMessage;
 
-  static const String correctEmail = 'user@example.com'; // Correct email
+  static const String correctEmail = 'user@example.com';
   static const String correctPassword = 'password';
 
-  void _validateAndLogin() {
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+
+  Future<void> _validateAndLogin() async {
     final email = _emailController.text.trim();
     final password = _passwordController.text;
 
     setState(() {
-      // Reset errors
       _emailErrorMessage = null;
       _passwordErrorMessage = null;
 
-      // Validate email
       if (email.isEmpty) {
-        _emailErrorMessage = 'Email cannot be empty';
+        _emailErrorMessage = ' Email nie może być pusty';
       } else if (email != correctEmail) {
-        _emailErrorMessage = 'Invalid email address';
+        _emailErrorMessage = 'Nieprawidłowy adres email';
       }
 
-      // Validate password
       if (password.isEmpty) {
-        _passwordErrorMessage = 'Password cannot be empty';
+        _passwordErrorMessage = 'Hasło nie może być puste';
       } else if (password != correctPassword) {
-        _passwordErrorMessage = 'Invalid password';
+        _passwordErrorMessage = ' Nieprawidłowe hasło';
       }
     });
 
-    // If no errors, navigate to the next screen
     if (_emailErrorMessage == null && _passwordErrorMessage == null) {
-      Navigator.push(
+      await SharedPrefsHelper.getLoginStatus(true);
+      await Navigator.pushReplacement(
         context,
         CupertinoPageRoute<NotesView>(
           builder: (context) => const NotesView(),
@@ -64,70 +70,8 @@ class _LoginViewState extends State<LoginView> {
 
 
   @override
-  void initState(){
-    super.initState();
-
-
-    _listener = AppLifecycleListener(
-      onDetach: _onDetauch,
-      onHide: _onHide,
-      onInactive: _onInactive,
-      onPause: _onPause,
-      onRestart: _onRestart,
-      onResume: _onResume,
-      onShow: _onShow,
-    );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _listener.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
-  }
-
-  void _onDetauch() {
-    print('onDEtauch');
-    _currentState = 'Ondetauch';
-  }
-
-  void _onHide() {
-    print('onHide');
-    _currentState = 'onHide';
-  }
-
-  void _onInactive() {
-    print('onInactive');
-    _currentState = 'onInactive';
-  }
-
-  void _onPause() {
-    print('onPause');
-    _currentState = 'onPause';
-  }
-
-  void _onRestart() {
-    print('onRestart');
-    _currentState = 'onRestart';
-  }
-
-  void _onResume() {
-    print('onResume');
-    _currentState = 'onResume';
-  }
-
-  void _onShow() {
-    print('onShow');
-    _currentState = 'onShow';
-  }
-
-
-
-
-  @override
   Widget build(BuildContext context) {
-    final width = Extensions.width(context);
+    Extensions.width(context);
 
     return SafeArea(
       child: Scaffold(
@@ -148,7 +92,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 if (_emailErrorMessage != null)
                   Padding(
-                    padding: const EdgeInsets.only(top: 8.0, left: 20, right: 20),
+                    padding: const EdgeInsets.only(top: 8, left: 20, right: 20),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -171,7 +115,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 if (_passwordErrorMessage != null)
                   Padding(
-                    padding: const EdgeInsets.only(top: 8.0, left: 20, right: 20),
+                    padding: const EdgeInsets.only(top: 8, left: 20, right: 20),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(

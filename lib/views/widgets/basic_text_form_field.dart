@@ -10,8 +10,7 @@ class BasicTextFormField extends StatefulWidget {
   final Widget? icon;
   final Widget? prefixIcon;
   final TextEditingController? controller;
-  final String? Function(String?)? validator;
-  final void Function(String)? onChanged;
+
 
 
   const BasicTextFormField({
@@ -23,8 +22,6 @@ class BasicTextFormField extends StatefulWidget {
     this.icon,
     this.prefixIcon,
     this.controller,
-    this.validator,
-    this.onChanged,
   });
 
   @override
@@ -33,31 +30,14 @@ class BasicTextFormField extends StatefulWidget {
 
 class _BasicTextFormFieldState extends State<BasicTextFormField> {
   late bool obscureText;
-  String? errorMessage;
 
-  static const String correctPassword = "123456";
 
   @override
   void initState() {
     super.initState();
-    obscureText = widget.obscureText; // Initialize the obscureText state
+    obscureText = widget.obscureText;
   }
 
-  void _validatePassword(String? value) {
-    if (value == null || value.isEmpty) {
-      setState(() {
-        errorMessage = 'Password cannot be empty';
-      });
-    } else if (value != correctPassword) {
-      setState(() {
-        errorMessage = 'Invalid password';
-      });
-    } else {
-      setState(() {
-        errorMessage = null; // Clear error message if valid
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,13 +51,6 @@ class _BasicTextFormFieldState extends State<BasicTextFormField> {
             controller: widget.controller,
             obscureText: obscureText,
             initialValue: widget.controller == null ? widget.initialValue : null,
-            validator: widget.validator,
-            onChanged: (value) {
-              _validatePassword(value); // Validate password on change
-              if (widget.onChanged != null) {
-                widget.onChanged!(value);
-              }
-            },
             decoration: InputDecoration(
               hintText: widget.hintText,
               hintStyle: TextStyle(
@@ -125,18 +98,6 @@ class _BasicTextFormFieldState extends State<BasicTextFormField> {
             ),
           ),
         ),
-        if (errorMessage != null) // Show error message if present
-          Padding(
-            padding: const EdgeInsets.only(top: 8.0, left: 8.0),
-            child: Text(
-              errorMessage!,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.red,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
       ],
     );
   }

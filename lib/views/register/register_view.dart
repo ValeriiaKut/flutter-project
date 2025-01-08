@@ -11,7 +11,7 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = Extensions.width(context);
+    Extensions.width(context);
 
     return SafeArea(
       child: Scaffold(
@@ -177,6 +177,3 @@ Widget get _backText {
     ),
   );
 }
-
-
-
